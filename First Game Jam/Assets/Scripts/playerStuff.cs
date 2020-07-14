@@ -32,9 +32,18 @@ public class playerStuff : MonoBehaviour
         {
             TakeDamage(20);
         }
+
+        if (collision.gameObject.tag == ("Enemy1"))
+        {
+            TakeDamage(30);
+        }
+
+        if (collision.gameObject.tag == ("Enemy2"))
+        {
+            TakeDamage(50);
+        }
     
     }
-
     void TakeDamage(int damage)
     {
         currentHealth -= damage;

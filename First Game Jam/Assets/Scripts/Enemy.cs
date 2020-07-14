@@ -9,9 +9,13 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
 
+    public int maxHealth = 100;
+    public int currentHealth;
+
     // Start is called before the first frame update
     void Start() 
     {
+        currentHealth = maxHealth;
         rb = this.GetComponent<Rigidbody2D>();
     }
 
@@ -34,7 +38,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == ("bullet"))
         {
-            Destroy(gameObject);
+            TakeDamage(100);
         }
     
     }
@@ -42,6 +46,16 @@ public class Enemy : MonoBehaviour
     void moveCharacter(Vector2 direction)
     {
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
 }

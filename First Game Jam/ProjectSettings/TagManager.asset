@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Enemy
   - bullet
+  - DangerousTile
+  - LargeTile
+  - LevelChanger
+  - Enemy1
+  - Enemy2
   layers:
   - Default
   - TransparentFX
